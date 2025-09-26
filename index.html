@@ -1,211 +1,288 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio Proyek Digital</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        /* Menggunakan font Inter sebagai default */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c;
-            color: #e2e8f0;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        /* Style untuk animasi fade-in saat scroll */
+        .project-card, .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .project-card.visible, .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
+<body class="bg-slate-50 text-slate-800">
 
-    <header class="text-center mb-12">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-            Portofolio Proyek Saya
-        </h1>
-        <p class="mt-4 text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
-            Selamat datang di galeri proyek-proyek saya. Di bawah ini, Anda dapat menjelajahi beberapa karya yang telah saya selesaikan.
-        </p>
+    <!-- Header & Navigasi -->
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-900">Portofolio Digital</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#aplikasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Aplikasi & Dasbor</a>
+                <a href="#presentasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Presentasi Digital</a>
+                <a href="#video" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Produksi Video</a>
+                <a href="#analisis" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Analisis & Riset</a>
+            </nav>
+        </div>
     </header>
-    
-    <!-- Bagian Profil Singkat -->
-    <section class="w-full max-w-5xl bg-gray-800 rounded-xl shadow-lg p-6 mb-12">
-        <h2 class="text-3xl font-bold text-white mb-4 text-center">Profil Singkat</h2>
-        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left">
-            <img src="https://placehold.co/150x150/4a5568/a0aec0?text=Agung+Eko" alt="Gambar profil Ir. R. Agung Eko Pitono, MT" class="w-28 h-28 rounded-full object-cover mb-4 sm:mb-0 sm:mr-6 shadow-md">
-            <div>
-                <h3 class="text-2xl font-semibold text-white mb-2">Ir. R. Agung Eko Pitono, MT</h3>
-                <p class="text-gray-400 text-lg mb-2">Pensiunan Widyaiswara Ahli Madya BPSDM Provinsi NTT</p>
-                <div class="text-gray-300 mt-4">
-                    <h4 class="text-xl font-medium text-white mb-1">Keahlian:</h4>
-                    <ul class="list-disc list-inside space-y-1 text-base">
-                        <li>Merancang Pelatihan</li>
-                        <li>Prompt Engeneering</li>
-                        <li>Software Engenering</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <main class="w-full max-w-5xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Sistem Pengelolaan Anggaran</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Sistem berbasis web untuk manajemen dan pengelolaan anggaran perusahaan.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Sistem+Manajemen+Anggaran" alt="Placeholder image for Budget Management System project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://kbpu-2.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16 md:py-24">
+
+        <!-- Hero Section -->
+        <section class="grid md:grid-cols-2 gap-12 items-center mb-24 md:mb-32">
+            <div class="text-center md:text-left">
+                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-slate-900 mb-4">Inovasi Digital untuk Sektor Publik</h2>
+                <p class="max-w-xl mx-auto md:mx-0 text-lg text-slate-600">
+                    Kumpulan proyek digital yang telah saya kembangkan, mencakup analisis kebijakan publik, pengembangan aplikasi web interaktif, dasbor data, hingga presentasi strategis.
+                </p>
+            </div>
+            <div class="flex justify-center">
+                <img src="Agung.jpg" alt="Foto profil Anda" class="rounded-full h-64 w-64 md:h-80 md:w-80 object-cover shadow-lg">
+            </div>
+        </section>
+        
+        <!-- Divider -->
+        <div class="w-full border-t border-slate-200 mb-24 md:mb-32"></div>
+
+        <!-- Section: Aplikasi Web & Dasbor Interaktif -->
+        <section id="aplikasi" class="mb-24 md:mb-32">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Aplikasi Web & Dasbor Interaktif</h3>
+                <p class="text-lg text-slate-600">Kumpulan aplikasi, dasbor, dan tools berbasis web yang dirancang untuk memecahkan masalah spesifik, mulai dari analisis data hingga otomatisasi proses.</p>
             </div>
             
-            <!-- Project 2 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Analisis Komparatif Regulasi</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Analisis mendalam terhadap regulasi dan perbandingannya dengan standar internasional.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Analisis+Regulasi" alt="Placeholder image for Comparative Regulation Analysis project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://analisis-komparatif-regulasi-pemanf.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Applications will be injected here -->
+            </div>
+        </section>
+
+        <!-- Section: Presentasi Digital & Proyek Perubahan -->
+        <section id="presentasi" class="mb-24 md:mb-32">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Presentasi Digital & Proyek Perubahan</h3>
+                <p class="text-lg text-slate-600">Kumpulan presentasi strategis dan gagasan proyek perubahan yang disajikan dalam format digital interaktif, dirancang untuk advokasi kebijakan dan perencanaan program.</p>
             </div>
 
-            <!-- Project 3 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Analisis Rumija</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Kajian teknis dan analisis data terkait Ruang Milik Jalan (Rumija).
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Analisis+Rumija" alt="Placeholder image for Rumija Analysis project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://analisis-rumija.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Presentations will be injected here -->
+            </div>
+        </section>
+        
+        <!-- Section: Produksi Video & Konten Digital -->
+        <section id="video" class="mb-24 md:mb-32">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Produksi Video & Konten Digital</h3>
+                <p class="text-lg text-slate-600">Kumpulan karya dalam format video yang membahas berbagai topik, mulai dari tutorial hingga analisis mendalam, yang dipublikasikan di platform seperti YouTube.</p>
             </div>
 
-            <!-- Project 4 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Aplikasi Kuis AI</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Sebuah aplikasi kuis interaktif yang menggunakan kecerdasan buatan.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Aplikasi+Kuis+AI" alt="Placeholder image for AI Quiz Application project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://agung64.github.io/aplikasi-kuis-ai/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Videos will be injected here -->
             </div>
-            
-            <!-- Project 5 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Simulasi Penilaian LGD</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Aplikasi web untuk simulasi dan penilaian kinerja.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Simulasi+Penilaian+LGD" alt="Placeholder image for LGD Assessment Simulation project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://simulasi-penilaian-lgd.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
+        </section>
+
+        <!-- Section: Analisis & Riset Kebijakan -->
+        <section id="analisis" class="mb-24 md:mb-32">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Analisis & Riset Kebijakan</h3>
+                <p class="text-lg text-slate-600">Kumpulan dokumen analisis dan riset mendalam mengenai berbagai isu kebijakan publik dan prospek bisnis di sektor pemerintahan.</p>
             </div>
 
-            <!-- Project 6 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Presentasi Konservasi Air</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Presentasi interaktif yang membahas strategi dan pentingnya konservasi air.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Presentasi+Konservasi+Air" alt="Placeholder image for Water Conservation Presentation project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://presentasi-konservasi-air.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Analysis will be injected here -->
             </div>
+        </section>
 
-            <!-- Project 7 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Website Modul</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Sebuah situs web yang berfungsi sebagai modul atau panduan pelatihan online.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Website+Modul" alt="Placeholder image for Module Website project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://website-modul.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
-            </div>
 
-            <!-- Project 8 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Asisten Dokumen Aman</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Sebuah aplikasi web untuk mengelola dan mengamankan dokumen penting.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Asisten+Dokumen+Aman" alt="Placeholder image for Secure Document Assistant project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://asisten-dokumen-aman-w9fl.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
-            </div>
+        <!-- About Me / Contact Section -->
+        <section id="about" class="fade-in-section text-center py-24 mt-24">
+             <div class="w-full border-t border-slate-200 mb-24"></div>
+             <h3 class="text-3xl font-bold text-slate-900 mb-4">Tentang Saya</h3>
+             <p class="max-w-2xl mx-auto text-slate-600 mb-8">
+                Saya adalah seorang profesional yang bersemangat dalam menciptakan solusi digital inovatif untuk sektor publik. Dengan keahlian di bidang analisis kebijakan dan pengembangan web, saya berfokus pada proyek-proyek yang memberikan dampak positif bagi masyarakat. Mari terhubung!
+             </p>
+             <div class="flex justify-center gap-6">
+                <a href="https://www.facebook.com/agung.pitono.5" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 transition-colors">Facebook</a>
+                <a href="https://www.tiktok.com/@agung.pitono2" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 transition-colors">TikTok</a>
+                <a href="https://www.youtube.com/@mudah_diingat" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 transition-colors">YouTube</a>
+             </div>
+        </section>
 
-            <!-- Project 9 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Aplikasi Minimax.io</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Sebuah aplikasi web yang di-host di Minimax.io.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Aplikasi+Minimax.io" alt="Placeholder image for Minimax.io App project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://iu7onuv1ic.space.minimax.io/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
-            </div>
-
-            <!-- Project 10 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Aplikasi Manus.space</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Sebuah aplikasi web yang di-host di Manus.space.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Aplikasi+Manus.space" alt="Placeholder image for Manus.space App project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://wbrydqdr.manus.space/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Project 11 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold text-white mb-2">Aplikasi Manus.space</h2>
-                    <p class="text-gray-400 text-sm mb-4">
-                        Sebuah aplikasi web yang di-host di Manus.space.
-                    </p>
-                    <img src="https://placehold.co/600x400/2d3748/cbd5e0?text=Aplikasi+Manus.space" alt="Placeholder image for Manus.space App project" class="w-full h-auto object-cover rounded-lg mb-4 shadow-md">
-                    <a href="https://qcdtyugc.manus.space/" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Lihat Proyek
-                    </a>
-                </div>
-            </div>
-        </div>
     </main>
-    
-    <footer class="mt-12 text-center text-gray-500 text-sm">
-        <p>&copy; 2024 Portofolio Saya. Semua hak cipta dilindungi.</p>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p>&copy; 2025 Portofolio Digital. Dibuat dengan passion dan inovasi.</p>
+        </div>
     </footer>
 
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="hidden fixed bottom-5 right-5 bg-white border border-slate-200 rounded-xl shadow-2xl p-5 max-w-sm w-full z-50">
+        <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg class="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                </svg>
+            </div>
+            <div class="flex-1">
+                <h4 class="font-bold text-slate-800">Portofolio Diperbarui!</h4>
+                <p class="text-sm text-slate-600 mt-1">Ada proyek baru yang ditambahkan. Lihat sekarang untuk melihat karya terbaru saya.</p>
+            </div>
+            <button id="close-notification" class="text-slate-400 hover:text-slate-600 transition-colors">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        // Data untuk semua proyek
+        const projects = {
+            applications: [
+                { title: "Platform Kritik & Masukan OVOP", description: "Sebuah platform untuk memberikan kritik dan masukan konstruktif terhadap program One Village One Product (OVOP) di NTT, bertujuan untuk evaluasi dan perbaikan program.", links: ["https://kritik-ovop.vercel.app/"], image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: true },
+                { title: "Chatbot RPJMD NTT 2025-2029", description: "Sebuah aplikasi chatbot interaktif yang dirancang untuk menjawab pertanyaan seputar dokumen Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Provinsi NTT.", links: ["https://chatbot-rpjmd-ntt-2025-2029.vercel.app/"], image: "Gemini_Generated_Image_h16pvoh16pvoh16p.png" },
+                { title: "AI Document Assistant", description: "Aplikasi web berbasis AI yang berfungsi sebagai asisten dokumen. Pengguna dapat mengunggah file PDF dan mengajukan pertanyaan terkait isi dokumen untuk mendapatkan jawaban secara instan.", links: ["https://asisten-dokumen-aman-w9fl.vercel.app/"], image: "https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Dasbor Rencana Aksi Daerah (RAD) NTT", description: "Sebuah dasbor interaktif untuk pemantauan Rencana Aksi Daerah (RAD) Provinsi NTT, menampilkan data dan metrik kinerja terkait program-program strategis secara visual.", links: ["https://dasborradntt.vercel.app/"], image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Dasbor Data Dukcapil", description: "Sebuah dasbor interaktif yang menampilkan data statistik kependudukan dari Dinas Kependudukan dan Pencatatan Sipil (Dukcapil), seperti progres perekaman KTP-el.", links: ["https://dasbordukcapil.vercel.app/"], image: "Dasbor Data Dukcapil.png" },
+                { title: "Analisis Komparatif Regulasi RUMIJA", description: "Situs analitik yang membandingkan Peraturan Daerah terkait Ruang Milik Jalan (RUMIJA) di tiga kota besar, dilengkapi visualisasi data dan dokumen pendukung.", links: ["https://analisis-rumija.vercel.app/", "https://analisis-komparatif-regulasi-pemanf.vercel.app/"], image: "7.png" },
+                { title: "Simulasi Penilaian LGD", description: "Aplikasi web interaktif untuk melakukan Simulasi Penilaian Diskusi Kelompok (LGD), sebuah alat bantu untuk proses asesmen dan seleksi.", links: ["https://simulasi-penilaian-lgd.vercel.app/"], image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Visualisasi Flowchart Proses PUPR", description: "Sebuah halaman web yang menampilkan diagram alir (flowchart) interaktif untuk menjelaskan suatu proses atau alur kerja di lingkungan Kementerian PUPR.", links: ["https://flowchartpupr.vercel.app/"], image: "https://images.unsplash.com/photo-1529119368496-2dfda6ec2804?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Repositori Kode: Aplikasi Calon Sekda SBD", description: "Repositori publik di GitHub yang berisi kode sumber dan aset untuk halaman web presentasi calon Sekretaris Daerah Kabupaten Sumba Barat Daya.", links: ["https://calon-sekda-sbd.vercel.app/"], image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Modul Pembelajaran Interaktif", description: "Sebuah website yang berfungsi sebagai modul atau panduan pembelajaran interaktif untuk berbagai topik.", links: ["https://website-modul.vercel.app/"], image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDBfHx8fA%3D%3D" },
+                { title: "Demonstrasi Keamanan Web", description: "Sebuah halaman web yang membahas atau mendemonstrasikan konsep-konsep fundamental keamanan web.", links: ["https://webkeamanan.vercel.app/"], image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Dokumen Digital RPJMD NTT", description: "Sebuah website yang menyajikan dokumen Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Provinsi NTT periode 2025-2029 dalam format digital dan interaktif.", links: ["https://rpjmdntt-2025-2029.vercel.app/"], image: "Dokumen Digital RPJMD NTT.png" }
+            ],
+            presentations: [
+                { title: "Proyek 'GEBER-NTT': Kemandirian Fiskal Infrastruktur", description: "Presentasi proyek perubahan untuk mencapai kemandirian fiskal infrastruktur di NTT melalui formulasi regulasi pemanfaatan aset jalan dan pembangunan ekosistem digital.", links: ["https://presentasi-pupr-10-9-2025.vercel.app/", "https://pupr-beige.vercel.app/"], image: "1.png" },
+                { title: "Proyek 'KEUDA KEREN': Transformasi Keuangan Daerah NTT", description: "Gagasan proyek perubahan untuk mentransformasi pengelolaan keuangan daerah di NTT dari fokus penyerapan anggaran menjadi penciptaan nilai melalui efisiensi dan transparansi.", links: ["https://presentasi-rancangan-kaban-keuda.vercel.app/", "https://keuda.vercel.app/"], image: "2.png" },
+                { title: "Proyek 'DUKCAPIL MENJANGKAU': Inovasi Layanan Adminduk", description: "Presentasi strategis untuk mengatasi tantangan geografis ('tirani jarak') di NTT dengan layanan administrasi kependudukan yang proaktif dan kolaboratif.", links: ["https://dukcapil-omega.vercel.app/", "https://presentasi-rancangan-kadis-dukcapil.vercel.app/"], image: "3.png" },
+                { title: "Gagasan Calon Sekda Sumba Barat Daya", description: "Presentasi strategis dari Yengo Tada Kawi, S.Pd., yang menguraikan visi 'Mewujudkan Birokrasi Adaptif' untuk akselerasi penurunan stunting dan kemiskinan ekstrem.", links: ["https://calon-sekda-sbd.vercel.app/"], image: "https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Proyek 'GERMASTA': Konservasi Mata Air NTT", description: "Presentasi proyek 'Gerakan Masyarakat Sadar Mata Air' untuk mengatasi kondisi kritis mata air di Provinsi NTT melalui model kolaborasi pentahelix.", links: ["https://presentasi-konservasi-air.vercel.app/"], image: "https://images.unsplash.com/photo-1476231682828-37e571bc172f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Strategi Konservasi Air Tanah Kab. Kupang", description: "Presentasi interaktif mengenai strategi konservasi air tanah di kawasan permukiman dan lahan kering, disajikan oleh Dinas Lingkungan Hidup Kabupaten Kupang.", links: ["https://presentasi-konservasi-air-versi-2.vercel.app/"], image: "4.png" },
+                { title: "Panduan Optimalisasi Aset Daerah (DAMIJA)", description: "Sebuah presentasi interaktif yang berfungsi sebagai panduan lengkap untuk optimalisasi aset Daerah Milik Jalan (Damija) di Provinsi NTT guna meningkatkan PAD.", links: ["https://pergubdamija.vercel.app/"], image: "5.png" },
+                { title: "Proyek 'SIMBINA': Manajemen Jasa Konstruksi", description: "Presentasi yang menguraikan proyek 'SIMBINA', sebuah inovasi untuk meningkatkan efektivitas pembinaan dan pengawasan jasa konstruksi di Provinsi NTT.", links: ["https://presentasi-simbina.vercel.app/"], image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Proyek 'Optimalisasi Aset'", description: "Presentasi proyek perubahan 'Optimalisasi Aset' oleh Drimianto, yang bertujuan meningkatkan Pendapatan Asli Daerah (PAD) melalui pemanfaatan aset daerah yang lebih efektif.", links: ["https://presentasi-drimianto.vercel.app/"], image: "6.png" }
+            ],
+            videos: [
+                { title: "STRATEGI BARU PAD NTT! Komisi IV DPRD Sepakati Ranperda RUED & Utilitas.", description: "Komisi IV DPRD Provinsi NTT mengadakan Rapat penting bersama mitra kerja untuk membahas dan menyepakati Rancangan Peraturan Daerah (Ranperda) Usul Prakarsa Komisi yang akan didorong masuk dalam Program Pembentukan Peraturan Daerah (Propemperda) Tahun 2026.", links: ["https://youtu.be/9my0kQZeKMg"], image: "https://i.ytimg.com/vi/9my0kQZeKMg/hqdefault.jpg" },
+                { title: "KMP: Sistem Ekonomi Desa | Mengelola 7 Usaha Koperasi dengan Otomatisasi & Teknologi Terdepan", description: "Video ini akan membedah Aplikasi Koperasi Merah Putih (KMP), sebuah Sistem Operasi Digital Terpadu untuk Ekonomi Desa/Kelurahan. KMP dirancang bukan sebagai Aplikasi Bisnis umum, melainkan spesifik untuk operasional Koperasi, dan wajib Sesuai Standar Akuntansi Kemenkop: UKM No 2/2024.", links: ["https://www.youtube.com/watch?v=vf9XRgjdpes"], image: "https://i.ytimg.com/vi/vf9XRgjdpes/hqdefault.jpg", isNew: false }
+            ],
+            analysis: [
+                { title: "Analisis Prospek Bisnis Jasa Konsultasi LAN", description: "Menelaah dokumen tentang Analisis Prospek Bisnis Jasa Konsultasi dan Pendampingan bagi Peserta Pelatihan Kepemimpinan LAN (PKA & PKN) di Indonesia.", links: ["Analisis Komparatif Perda Pemanfaatan Rumija.pdf"], image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: false },
+                { title: "Dokumen Analisis Komparatif Perda Pemanfaatan Rumija", description: "Dokumen riset mendalam yang membandingkan peraturan daerah terkait pemanfaatan Ruang Milik Jalan (Rumija) di berbagai kota di Indonesia.", links: ["Analisis Komparatif Perda Pemanfaatan Rumija.pdf"], image: "8.png", isNew: false, imageClasses: "w-full h-auto" },
+                { title: "Kajian Pemanfaatan Daerah Milik Jalan oleh Swasta", description: "Dokumen analisis yang mengkaji model dan regulasi pemanfaatan Daerah Milik Jalan (Damija) oleh pihak swasta untuk peningkatan nilai ekonomi dan pelayanan publik.", links: ["Pemanfaatan Daerah Milik Jalan Swasta.pdf"], image: "9.png", isNew: false, imageClasses: "w-full h-auto" }
+            ]
+        };
+        // Fungsi untuk membuat kartu proyek
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'project-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300';
+            let linksHTML = project.links.map((link, index) => {
+                let buttonText = "Lihat Proyek";
+                if (project.links.length > 1) {
+                    buttonText = `Tautan ${index + 1}`;
+                }
+                if (link.includes("youtu.be") || link.includes("youtube.com")) {
+                    buttonText = "Tonton di YouTube";
+                }
+                if (link.includes("github.com")) {
+                    buttonText = "Lihat Kode di GitHub";
+                }
+                if (link.toLowerCase().endsWith(".pdf")) {
+                    buttonText = "Lihat Dokumen";
+                }
+                return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
+                            ${buttonText} &rarr;
+                        </a>`;
+            }).join('<span class="mx-2 text-slate-300">|</span>');
+            const imageClasses = project.imageClasses || 'w-full h-64 object-cover';
+            card.innerHTML = `
+                <div class="bg-slate-200">
+                     <img src="${project.image}" alt="Visual untuk proyek ${project.title}" class="${imageClasses}">
+                </div>
+                <div class="p-8">
+                    <h4 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-3">
+                        ${project.title}
+                        ${project.isNew ? '<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full">BARU</span>' : ''}
+                    </h4>
+                    <p class="text-slate-600 text-base mb-6">${project.description}</p>
+                    <div class="flex flex-wrap gap-2 items-center">
+                        ${linksHTML}
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+        // Memuat proyek ke dalam DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            const appContainer = document.querySelector('#aplikasi .flex.flex-col');
+            const presentationContainer = document.querySelector('#presentasi .flex.flex-col');
+            const videoContainer = document.querySelector('#video .flex.flex-col');
+            const analysisContainer = document.querySelector('#analisis .flex.flex-col');
+            projects.applications.forEach(project => {
+                appContainer.appendChild(createProjectCard(project));
+            });
+            projects.presentations.forEach(project => {
+                presentationContainer.appendChild(createProjectCard(project));
+            });
+            projects.videos.forEach(project => {
+                videoContainer.appendChild(createProjectCard(project));
+            });
+            projects.analysis.forEach(project => {
+                analysisContainer.appendChild(createProjectCard(project));
+            });
+            // --- Logic Pemberitahuan ---
+            const notificationToast = document.getElementById('notification-toast');
+            const closeNotificationBtn = document.getElementById('close-notification');
+            const notificationVersion = 'update_20251001'; 
+            const hasNewProject = Object.values(projects).flat().some(p => p.isNew);
+            const isNotificationDismissed = localStorage.getItem('notificationDismissed') === notificationVersion;
+            if (hasNewProject && !isNotificationDismissed) {
+                setTimeout(() => {
+                    notificationToast.classList.remove('hidden');
+                    notificationToast.classList.add('flex');
+                }, 2000); // Tunda 2 detik
+            }
+            closeNotificationBtn.addEventListener('click', () => {
+                notificationToast.style.display = 'none';
+                localStorage.setItem('notificationDismissed', notificationVersion);
+            });
+            // Inisialisasi Intersection Observer untuk animasi
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            document.querySelectorAll('.project-card, .fade-in-section').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
+
